@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #131921;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header__logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 10px;
+  display: flex;
+}
+.header_delivery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  font-weight: bold;
+  color: white;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+.header_delivery p {
+  font-size: 12px;
+}
+
+.header_delivery span {
+  font-size: 14px;
+}
+
+.header__searchIcon {
+  padding: 5px;
+  height: 22px !important;
+  background-color: #cd9042;
+}
+.header__search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header__search select,
+.header__search input {
+  padding: 10px;
+  font-weight: bold;
+  outline: 1px solid white;
+}
+.header__search select {
+  border: none;
+}
+
+.header__search input {
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  margin-right: -2px;
+}
+.header__search:focus-within {
+  border: 2px solid #f3a847;
+}
+
+.header__searchInput {
+  height: 11px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header__optionLineOne {
+  font-size: 10px;
+}
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.header__basketCount {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.header__clearlink {
+  text-decoration: none;
+}
+
+.header img:hover,
+.header_delivery:hover,
+.header__option:hover,
+.header__logo :hover {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.lower__container {
+  background-color: #232f3e;
+  color: white;
+}
+
+.lower__container ul {
+  display: flex;
+
+  list-style: none;
+  /* align-items: center; */
+  gap: 5px;
+}
+.lower__container ul li {
+  padding: 12px;
+  margin: 2px;
+}
+
+.lower__container ul li:hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.lower__container ul li:first-child {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
