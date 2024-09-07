@@ -16,6 +16,7 @@ function CarouselEffect() {
           return <img src={imageItemLink} />;
         })}
       </Carousel>
+      <div className={classes.hero__img}></div>
     </div>
   );
 }
