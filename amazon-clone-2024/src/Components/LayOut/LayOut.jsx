@@ -1,10 +1,11 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
+// import Header from '../../Components/Header/Header'
+import Header from "../Header/Header";
 
 function LayOut({children}) {
   return (
     <div>
-        <Header/>
+     <Header/>
         {children}
       
     </div>

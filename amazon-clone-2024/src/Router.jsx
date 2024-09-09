@@ -18,8 +18,14 @@ function Routing() {
         <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/productDetail" element={<ProductDetail/>} />
+        <Route path="/category/:categoryName" element={<Results />} />
+        {/* <Route path="/products/:productId" element={<ProductDetail />} /> */}
+
+        {/* Add this route to handle category and product details */}
+        <Route
+          path="/category/:categoryName/products/:productId"
+          element={<ProductDetail />}
+        />
       </Routes>
     </Router>
   );
