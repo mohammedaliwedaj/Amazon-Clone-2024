@@ -1,60 +1,71 @@
-import React from 'react'
-import classes from './header.module.css'
+
+
+import React from "react";
+import classes from "./header.module.css";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import LowerHeader from './LowerHeader';
-import { IoLocationOutline } from "react-icons/io5";
+import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
+import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <>
       <section className={classes.header}>
-        <a href="/">
-          <img
-            className={classes.header__logo}
-            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-            alt="Amazon logo"
-          />
-        </a>
-        <div className={classes.header_delivery}>
-          <span>
-            <IoLocationOutline />
-          </span>
-          <div>
-            <p>Deliver to</p>
-            <span>Ethiopia</span>
+        <div className={classes.header__container}>
+          {/* logo section */}
+          <div className={classes.logo__container}>
+            <Link to="/">
+              <img
+                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                alt="amazon logo"
+              />
+            </Link>
+            <div className={classes.delivery}>
+              <span>
+                <LocationOnOutlinedIcon />
+              </span>
+              <div>
+                <p>Deliver to</p>
+                <span>Ethiopia</span>
+              </div>
+            </div>
           </div>
-        </div>
-        {/* search section */}
-        <div className={classes.header__search}>
-          <select name="" id="">
-            <option value="">All</option>
-          </select>
-          <input type="text" className={classes.header__searchInput} />
-          <SearchIcon className={classes.header__searchIcon} />
-        </div>
-        {/* nav section */}
 
-        <div className={classes.header__nav}>
-          <div className={classes.header__option}>
-            <span className={classes.header__optionLineOne}>Hello Geust</span>
-            <span className={classes.header__optionLineTwo}>Sign In</span>
+          {/* search section */}
+          <div className="search">
+            <select name="" id="">
+              <option value="">All</option>
+            </select>
+            <input type="text" />
+            <SearchIcon size={25} />
           </div>
-          <div className={classes.header__option}>
-            <span className={classes.header__optionLineOne}>Returns</span>
-            <span className={classes.header__optionLineTwo}>& Orders</span>
-          </div>
-          <div className={classes.header__option}>
-            <span className={classes.header__optionLineOne}>Your</span>
-            <span className={classes.header__optionLineTwo}>Prime</span>
-          </div>
-          <div className={classes.header__optionBasket}>
-            <ShoppingBasketIcon />
-            <span
-              className={`${classes.header__optionLineTwo} ${classes.header__basketCount}`}
-            >
-              0
-            </span>
+
+          {/* other section */}
+          <div className={classes.order__container}>
+            <Link to="" className={classes.language}>
+              <img
+                  src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"
+                  alt=""
+                />
+              <select name="" id="">
+                <option value="">EN</option>
+              </select>
+            </Link>
+            <Link to="">
+              <p>Sign In</p>
+              <span>Account & Lists</span>
+            </Link>
+
+            <Link to="/orders">
+              <p>Returns</p>
+              <span>& Orders</span>
+            </Link>
+
+            <Link to="/cart" className={classes.cart}>
+              <ShoppingBasketOutlinedIcon />
+              <span>0</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -63,4 +74,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;
