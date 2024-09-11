@@ -12,10 +12,13 @@ import { DataContext } from "../DataProvider/DataProvider";
 function Header() {
 
   const [{basket}, dispatch] =useContext(DataContext)
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
   
   return (
     <>
-      <section className={classes.header}>
+      <section className={classes.fixed}>
         <div className={classes.header__container}>
           {/* logo section */}
           <div className={classes.logo__container}>
@@ -35,6 +38,7 @@ function Header() {
               </div>
             </div>
           </div>
+          
 
           {/* search section */}
           <div className="search">
@@ -44,6 +48,9 @@ function Header() {
             <input type="text" />
             <SearchIcon size={25} />
           </div>
+
+
+
 
           {/* other section */}
           <div className={classes.order__container}>
@@ -68,7 +75,7 @@ function Header() {
 
             <Link to="/cart" className={classes.cart}>
               <ShoppingBasketOutlinedIcon />
-              <span>{basket.length}</span>
+              <span>{totalItem}</span>
             </Link>
           </div>
         </div>

@@ -2,11 +2,11 @@
   padding: 0;
   margin: 0;
 }
-.header {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #131921;
+.fixed {
+  /* height: 60px; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* background-color: #131921; */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -15,9 +15,9 @@
   background-color: #1a1a1a;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 10px;
-  align-items: center;
+ 
   color: white;
   height: 70px;
 }
