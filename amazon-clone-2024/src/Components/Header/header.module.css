@@ -76,7 +76,7 @@
 .search input {
   border: 1px solid white;
   width: 100%;
-  margin-right: 12px;
+  margin-right: 2px;
 }
 
 .search svg {
@@ -130,6 +130,7 @@
   left: 14px;
   color: orange;
 }
+.logo__container a:hover,
 .order__container a:hover,
 .delivery:hover,
 .logo_container a:hover,

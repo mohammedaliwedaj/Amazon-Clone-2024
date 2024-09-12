@@ -1,24 +1,22 @@
-
-
 import React, { useContext } from "react";
-import classes from "./header.module.css";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import LowerHeader from "./LowerHeader";
+import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { SlLocationPin } from "react-icons/sl";
+import { BsSearch } from "react-icons/bs";
+import LowerHeader from "./LowerHeader";
+import { BiCart } from "react-icons/bi";
 import { DataContext } from "../DataProvider/DataProvider";
+// import { auth } from "../../Utility/firebase";
 
-function Header() {
-
-  const [{basket}, dispatch] =useContext(DataContext)
+const Header = () => {
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
-  
+
   return (
-    <>
-      <section className={classes.fixed}>
+    <section className={classes.fixed}>
+      <section>
         <div className={classes.header__container}>
           {/* logo section */}
           <div className={classes.logo__container}>
@@ -30,7 +28,7 @@ function Header() {
             </Link>
             <div className={classes.delivery}>
               <span>
-                <LocationOnOutlinedIcon />
+                <SlLocationPin />
               </span>
               <div>
                 <p>Deliver to</p>
@@ -38,51 +36,57 @@ function Header() {
               </div>
             </div>
           </div>
-          
-
           {/* search section */}
-          <div className="search">
+          <div className={classes.search}>
             <select name="" id="">
               <option value="">All</option>
             </select>
             <input type="text" />
-            <SearchIcon size={25} />
+            <BsSearch size={38} />
           </div>
-
-
-
-
           {/* other section */}
           <div className={classes.order__container}>
             <Link to="" className={classes.language}>
               <img
-                  src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"
-                  alt=""
-                />
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
+                alt=""
+              />
+
               <select name="" id="">
                 <option value="">EN</option>
               </select>
             </Link>
-            <Link to="">
-              <p>Sign In</p>
-              <span>Account & Lists</span>
+            <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => (user ? auth.signOut() : null)}>
+                      Sign Out
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
             </Link>
-
             <Link to="/orders">
-              <p>Returns</p>
+              <p>returns</p>
               <span>& Orders</span>
             </Link>
-
             <Link to="/cart" className={classes.cart}>
-              <ShoppingBasketOutlinedIcon />
+              <BiCart size={35} />
               <span>{totalItem}</span>
             </Link>
           </div>
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
-}
+};
 
 export default Header;
