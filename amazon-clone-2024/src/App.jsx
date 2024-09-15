@@ -1,13 +1,29 @@
-import { useState } from "react";
-
-// import Header from "./Components/Header/Header";
-// import CarouselEffect from "./Components/Carousel/CarouselEffect";
-// import Category from "./Components/Catagory/Category";
-// import Product from "./Components/Product/Product";
+import { useContext, useEffect } from "react";
 import Routing from "./Router";
+import { DataContext } from "./Components/DataProvider/DataProvider";
+import { Type } from "./Utility/action.type";
+import { auth } from "./Utility/firebase";
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [{user}, dispatch] =useContext(DataContext)
+
+  useEffect(()=>{
+    auth.onAuthStateChanged((authUser)=>{
+      if(authUser){
+        console.log(authUser)
+        dispatch({
+          type:Type.SET_USER,
+          user:authUser
+        })
+      }else{
+        dispatch({
+          type:Type.SET_USER,
+          user:null
+        })
+      }
+    })
+
+  },[])
 
   return (
     <>
