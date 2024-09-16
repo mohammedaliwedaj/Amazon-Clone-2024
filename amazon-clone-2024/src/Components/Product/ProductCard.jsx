@@ -31,16 +31,18 @@ function ProductCard({ product, flex, renderDesc, renderAdd }) {
         flex ? classes.product__flexed : ""
       }`}
     >
+      {/* image */}
       <Link to={`/products/${id}`}>
         <img src={image} alt="" className={classes.img_container} />
       </Link>
       <div>
+        {/* title */}
         <h3>{title}</h3>
         {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
         <div className={classes.rating}>
           {/* rating */}
           <Rating value={rating?.rate} precision={0.1} />
-          {/*count  */}
+          {/*rating counter  */}
           <small>{rating?.count}</small>
         </div>
         <div>

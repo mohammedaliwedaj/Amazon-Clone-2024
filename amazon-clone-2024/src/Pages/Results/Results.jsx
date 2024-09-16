@@ -48,7 +48,7 @@ function Results() {
               />
             ))}
           </div>
-        )}
+        )} 
       </section>
     </LayOut>
   );
