@@ -1,13 +1,9 @@
 import React from "react";
+import numeral from "numeral";
 
-function CurrencyFormat() {
-  if (typeof amount !== "number" || isNaN(amount)) {
-    return null;
-  }
-
-  const formattedAmount = `$${amount.toFixed(2)}`;
-
-  return <span>{formattedAmount}</span>;
-}
+const CurrencyFormat = ({ amount }) => {
+  const formattedAmount = numeral(amount).format("$0,0.00");
+  return <div>{formattedAmount}</div>;
+};
 
 export default CurrencyFormat;

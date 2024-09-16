@@ -6,6 +6,7 @@ import ProductCard from "../../Components/Product/ProductCard";
 
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
+import { axiosInstance } from "../../Api/axios";
 
 function Payment() {
   const [{ user, basket }] = useContext(DataContext);
@@ -14,10 +15,9 @@ function Payment() {
     return item.amount + amount;
   }, 0);
 
-
-  const total =basket?.reduce((amount, item)=>{
-    return item.price * item.amount + amount
-  },0)
+  const total = basket?.reduce((amount, item) => {
+    return item.price * item.amount + amount;
+  }, 0);
 
   const [cardError, setCardError] = useState();
   const stripe = useStripe();
@@ -26,6 +26,33 @@ function Payment() {
   const handleChange = (e) => {
     console.log(e);
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    try {
+      //step 1 backend || functions ---->contact to the client secret
+      const response = await axiosInstance({
+        method: "POST",
+        url: `/payment/create?total=${total * 100}`,
+      });
+      console.log(response.data);
+      const clientSecret = response.data?.clientSecret;
+
+      //step 2 client side (react side confirmation)
+      const confirmation = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+
+      console.log(confirmation)
+    } catch (error) {}
+
+   
+
+    //step 3 after the confirmation ---> order firebase firestore database save, clear basket
   };
   return (
     <LayOut>
@@ -65,7 +92,7 @@ function Payment() {
           <h3>Payment method</h3>
           <div className={classes.payment__card__container}>
             <div className={classes.payment__details}>
-              <form action="">
+              <form onSubmit={handlePayment}>
                 {/* error */}
                 {cardError && (
                   <small style={{ color: "red" }}>{cardError}</small>
@@ -81,7 +108,7 @@ function Payment() {
                       <p>Total Order |</p> <CurrencyFormat amount={total} />
                     </span>
                   </div>
-                  <button>Pay Now</button>
+                  <button type="submit">Pay Now</button>
                 </div>
               </form>
             </div>
