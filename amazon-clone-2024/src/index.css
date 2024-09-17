@@ -3,10 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
-body, html {
+/* body, html {
   overflow-x: hidden;
-   /* overflow-y: hidden; */
-}
+ 
+} */
 .pt-serif-regular {
   font-family: "PT Serif", serif;
   font-weight: 400;

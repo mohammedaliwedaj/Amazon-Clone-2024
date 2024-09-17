@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Payment() {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket },dispatch] = useContext(DataContext);
   console.log(user);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -72,7 +72,8 @@ function Payment() {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
-     
+      // empty the basket
+      dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
       navigate("/orders", { state: { msg: "you have placed new Order" } });
