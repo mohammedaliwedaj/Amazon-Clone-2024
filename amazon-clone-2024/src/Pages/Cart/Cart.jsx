@@ -44,6 +44,7 @@ function Cart() {
              return (
                <section className={classes.cart__product}>
                  <ProductCard
+                 key={i}
                    product={item}
                    renderDesc={true}
                    renderAdd={false}

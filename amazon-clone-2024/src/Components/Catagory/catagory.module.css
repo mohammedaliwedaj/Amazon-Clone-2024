@@ -1,6 +1,6 @@
 .category {
   height: 350px;
-  width: 350px;
+  width: 250px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -33,10 +33,10 @@
   position: relative;
   margin-top: -10%;
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr)); */
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* grid-template-columns: repeat(4, 1fr); */
+   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   max-width: 1600px;
-  gap: 20px;
+  gap: 50px;
   margin-right: auto;
   margin-left: auto;
   place-items: center;

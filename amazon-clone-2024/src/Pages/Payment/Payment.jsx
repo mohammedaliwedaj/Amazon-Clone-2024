@@ -27,6 +27,7 @@ function Payment() {
 
   const [processing, setProcessing] = useState(false);
 
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -72,6 +73,7 @@ function Payment() {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
+        
       // empty the basket
       dispatch({ type: Type.EMPTY_BASKET });
 

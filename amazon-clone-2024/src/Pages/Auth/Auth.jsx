@@ -130,7 +130,7 @@ function Auth() {
             ) : (
               "Sign In"
             )}
-            Sign In
+           
           </button>
         </form>
 
