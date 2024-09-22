@@ -106,7 +106,7 @@ function Payment() {
         {/* product */}
         {/* map render */}
         <div className={classes.flex}>
-          <h3>Riview items and delivery</h3>
+          <h3>Review items and delivery</h3>
           <div>
             {basket?.map((item) => (
               <ProductCard product={item} flex={true} />
