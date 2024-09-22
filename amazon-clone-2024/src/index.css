@@ -4,33 +4,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-/* body, html {
-  overflow-x: hidden;
- 
-} */
-/* .pt-serif-regular {
-  font-family: "PT Serif", serif;
-  font-weight: 400;
-  font-style: normal;
-} */
 
-/* .pt-serif-regular-italic {
-  font-family: "PT Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-} */
-
-/* .pt-serif-bold {
-  font-family: "PT Serif", serif;
-  font-weight: 700;
-  font-style: normal;
-} */
-
-/* .pt-serif-bold-italic {
-  font-family: "PT Serif", serif;
-  font-weight: 700;
-  font-style: italic;
-} */
 
 :root {
   --primary-color: #febd69;
