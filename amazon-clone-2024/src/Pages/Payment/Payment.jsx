@@ -30,7 +30,6 @@ function Payment() {
 
   const stripe = useStripe();
   const elements = useElements();
-
   const navigate =useNavigate()
 
   const handleChange = (e) => {
@@ -40,7 +39,6 @@ function Payment() {
 
   const handlePayment = async (e) => {
     e.preventDefault();
-
     try {
       setProcessing(true);
       //step 1 backend || functions ---->contact to the client secret
