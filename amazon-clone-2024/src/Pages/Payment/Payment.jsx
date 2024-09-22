@@ -59,7 +59,6 @@ function Payment() {
       });
 
       // console.log(paymentIntent);
-
       //step 3 after the confirmation ---> order firebase firestore database save, clear basket
 
       await db
