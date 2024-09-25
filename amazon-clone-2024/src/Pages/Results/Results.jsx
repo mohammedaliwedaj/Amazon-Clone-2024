@@ -11,14 +11,14 @@ function Results() {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false); // Declare and initialize isLoading
   const { categoryName } = useParams();
-  // console.log(categoryName)
+  
 
   useEffect(() => {
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
         setResults(res.data);
-        // console.log(res.data);
+       
         setIsLoading(false); // Set isLoading to false after receiving the API response
       })
       .catch((err) => {
@@ -28,7 +28,6 @@ function Results() {
   }, [categoryName]);
 
   // console.log(results)
-
   return (
     <LayOut>
       <section>
