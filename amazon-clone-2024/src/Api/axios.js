@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
   // baseURL: "https://us-central1-clone-fda88.cloudfunctions.net/api",
 
   //deployed version of amzone server on render.com
-  baseURL: "https://amazon-api-deploy-iita.onrender.com/",
+  baseURL: "https://amazon-api-deploy-3f4a.onrender.com/",
 });
 
 export { axiosInstance };
